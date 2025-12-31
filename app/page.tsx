@@ -174,7 +174,7 @@ function HeroSection() {
         <div className="space-y-8">
           <div>
             <div className="accent-line mb-8" />
-            <h1 ref={nameRef} className="text-7xl lg:text-8xl font-black text-foreground leading-tight">
+            <h1 ref={nameRef} className="text-7xl lg:text-8xl font-black  text-red-500 leading-tight">
               Ekagra <span className="text-accent">Sharma</span>
             </h1>
             <p ref={subtitleRef} className="text-2xl lg:text-3xl text-muted-foreground mt-6 font-medium">
@@ -217,10 +217,11 @@ function HeroSection() {
           </div>
         </div>
 
-        <div ref={imageRef} className="relative h-96 lg:h-full min-h-96">
+
+        <div ref={imageRef} className="relative h-96 lg:h-[78%] min-h-96">
           <div className="absolute inset-0 bg-gradient-to-br from-accent/20 to-transparent rounded-2xl" />
           <img
-            src="/professional-developer-portrait.jpg"
+            src="/myImage.jpeg"
             alt="Ekagra Sharma"
             className="w-full h-full object-cover rounded-2xl"
           />
