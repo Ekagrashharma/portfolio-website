@@ -1,0 +1,108 @@
+<div ref={cardsRef} className="grid grid-cols-1 md:grid-cols-2 gap-8 mt-12">
+          {PROJECTS.map((project) => {
+            const IconComponent = project.icon
+            return (
+              <a
+                key={project.title}
+                href={project.href}
+                className="project-card group glass-effect p-8 rounded-xl hover:border-accent/50 transition-all duration-300 hover:scale-105 cursor-pointer"
+              >
+                <div className="flex items-start justify-between mb-6">
+                  <div className="p-3 rounded-lg bg-accent/10">
+                    <IconComponent size={32} className="text-accent" />
+                  </div>
+                  <span className="text-xs font-semibold text-accent uppercase">{project.type}</span>
+                </div>
+
+                <h3 className="text-2xl font-bold text-foreground mb-3 group-hover:text-accent transition-colors">
+                  {project.title}
+                </h3>
+
+                <p className="text-muted-foreground mb-6 line-clamp-2">{project.description}</p>
+
+                <div className="flex flex-wrap gap-2 mb-6">
+                  {project.tech.map((t) => (
+                    <span
+                      key={t}
+                      className="text-xs px-3 py-1 rounded-full bg-white/5 text-muted-foreground border border-white/10"
+                    >
+                      {t}
+                    </span>
+                  ))}
+                </div>
+
+                <div className="flex items-center gap-4 text-accent font-semibold group-hover:gap-6 transition-all">
+                  <span>View Project</span>
+                  <ArrowRight size={16} className="group-hover:translate-x-2 transition-transform" />
+                </div>
+              </a>
+            )
+          })}
+        </div>
+
+
+
+
+
+        {SKILLS_CATEGORIES.map((item) => {
+            const IconComponent = item.icon
+            return (
+              <div
+                key={item.category}
+                className="skill-card glass-effect p-8 rounded-xl hover:border-accent/50 transition-all duration-300 hover:translate-y-[-4px]"
+              >
+                <div className="flex items-center gap-3 mb-6">
+                  <div className="p-2 rounded-lg bg-accent/10">
+                    <IconComponent size={24} className="text-accent" />
+                  </div>
+                  <h3 className="text-xl font-bold text-foreground">{item.category}</h3>
+                </div>
+
+                <ul className="space-y-3">
+                  {item.skills.map((skill) => (
+                    <li
+                      key={skill}
+                      className="text-muted-foreground hover:text-foreground transition-colors flex items-center gap-2"
+                    >
+                      <span className="text-accent text-sm">▸</span>
+                      {skill}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            )
+          })}
+        </div>
+
+
+
+
+
+{SKILLS_CATEGORIES.map((item) => {
+            const IconComponent = item.icon
+            return (
+              <div
+                key={item.category}
+                className="skill-card glass-effect p-8 rounded-xl hover:border-accent/50 transition-all duration-300 hover:translate-y-[-4px]"
+              >
+                <div className="flex items-center gap-3 mb-6">
+                  <div className="p-2 rounded-lg bg-accent/10">
+                    <IconComponent size={24} className="text-accent" />
+                  </div>
+                  <h3 className="text-xl font-bold text-foreground">{item.category}</h3>
+                </div>
+
+                <ul className="space-y-3">
+                  {item.skills.map((skill) => (
+                    <li
+                      key={skill}
+                      className="text-muted-foreground hover:text-foreground transition-colors flex items-center gap-2"
+                    >
+                      <span className="text-accent text-sm">▸</span>
+                      {skill}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            )
+          })}

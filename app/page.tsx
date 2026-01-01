@@ -169,7 +169,7 @@ function HeroSection() {
   ]
 
   return (
-    <section className="min-h-screen pt-32 pb-7 px-6 noise-bg" id="home">
+    <section className="min-h-screen pt-10 pb-7 px-6 noise-bg" id="home">
       <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
         <div className="space-y-8">
           <div>
@@ -388,48 +388,65 @@ function ProjectsSection() {
             A selection of work that demonstrates my approach to design, engineering, and product development.
           </p>
         </div>
+          <div
+  ref={cardsRef}
+  className="grid grid-cols-1 md:grid-cols-2 gap-8 mt-12"
+>
+  {PROJECTS.map((project) => {
+    const Icon = project.icon
 
-        <div ref={cardsRef} className="grid grid-cols-1 md:grid-cols-2 gap-8 mt-12">
-          {PROJECTS.map((project) => {
-            const IconComponent = project.icon
-            return (
-              <a
-                key={project.title}
-                href={project.href}
-                className="project-card group glass-effect p-8 rounded-xl hover:border-accent/50 transition-all duration-300 hover:scale-105 cursor-pointer"
-              >
-                <div className="flex items-start justify-between mb-6">
-                  <div className="p-3 rounded-lg bg-accent/10">
-                    <IconComponent size={32} className="text-accent" />
-                  </div>
-                  <span className="text-xs font-semibold text-accent uppercase">{project.type}</span>
-                </div>
+    return (
+      <a
+        key={project.title}
+        href={project.href}
+        className="group p-6 rounded-xl border border-white/10 bg-black/10 hover:bg-black/20 transition-all duration-200 hover:scale-[1.03] cursor-pointer"
+      >
+        {/* top */}
+        <div className="flex items-start justify-between mb-5">
+          <div className="p-3 rounded-lg bg-accent/10">
+            <Icon size={28} className="text-accent" />
+          </div>
 
-                <h3 className="text-2xl font-bold text-foreground mb-3 group-hover:text-accent transition-colors">
-                  {project.title}
-                </h3>
-
-                <p className="text-muted-foreground mb-6 line-clamp-2">{project.description}</p>
-
-                <div className="flex flex-wrap gap-2 mb-6">
-                  {project.tech.map((t) => (
-                    <span
-                      key={t}
-                      className="text-xs px-3 py-1 rounded-full bg-white/5 text-muted-foreground border border-white/10"
-                    >
-                      {t}
-                    </span>
-                  ))}
-                </div>
-
-                <div className="flex items-center gap-4 text-accent font-semibold group-hover:gap-6 transition-all">
-                  <span>View Project</span>
-                  <ArrowRight size={16} className="group-hover:translate-x-2 transition-transform" />
-                </div>
-              </a>
-            )
-          })}
+          <span className="text-xs font-semibold text-accent uppercase">
+            {project.type}
+          </span>
         </div>
+
+        {/* title */}
+        <h3 className="text-xl font-semibold text-foreground mb-2 group-hover:text-accent transition-colors">
+          {project.title}
+        </h3>
+
+        {/* description */}
+        <p className="text-sm text-muted-foreground mb-5 line-clamp-2">
+          {project.description}
+        </p>
+
+        {/* tech list */}
+        <div className="flex flex-wrap gap-2 mb-5">
+          {project.tech.map((t) => (
+            <span
+              key={t}
+              className="text-[10px] px-2 py-1 rounded-full bg-white/[0.05] text-muted-foreground border border-white/[0.08]"
+            >
+              {t}
+            </span>
+          ))}
+        </div>
+
+        {/* view btn */}
+        <div className="flex items-center gap-3 text-accent font-medium group-hover:gap-5 transition-all">
+          <span>View Project</span>
+          <ArrowRight
+            size={15}
+            className="group-hover:translate-x-1 transition-transform"
+          />
+        </div>
+      </a>
+    )
+  })}
+</div>
+
       </div>
     </section>
   )
@@ -483,35 +500,40 @@ function SkillsSection() {
         </div>
 
         <div ref={cardsRef} className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-12">
-          {SKILLS_CATEGORIES.map((item) => {
-            const IconComponent = item.icon
-            return (
-              <div
-                key={item.category}
-                className="skill-card glass-effect p-8 rounded-xl hover:border-accent/50 transition-all duration-300 hover:translate-y-[-4px]"
-              >
-                <div className="flex items-center gap-3 mb-6">
-                  <div className="p-2 rounded-lg bg-accent/10">
-                    <IconComponent size={24} className="text-accent" />
-                  </div>
-                  <h3 className="text-xl font-bold text-foreground">{item.category}</h3>
-                </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mt-12">
+            {SKILLS_CATEGORIES.map((item) => {
+              const Icon = item.icon
 
-                <ul className="space-y-3">
-                  {item.skills.map((skill) => (
-                    <li
-                      key={skill}
-                      className="text-muted-foreground hover:text-foreground transition-colors flex items-center gap-2"
-                    >
-                      <span className="text-accent text-sm">▸</span>
-                      {skill}
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            )
-          })}
-        </div>
+              return (
+                <div
+                  key={item.category}
+                  className="p-6 rounded-xl border border-white/10 bg-white/[0.03] hover:bg-white/[0.06] transition-all duration-200 hover:-translate-y-1"
+                >
+                  {/* header */}
+                  <div className="flex items-center gap-3 mb-5">
+                    <div className="p-2 rounded-lg bg-accent/10">
+                      <Icon size={22} className="text-accent" />
+                    </div>
+                    <h3 className="text-lg font-semibold text-foreground">
+                      {item.category}
+                    </h3>
+                  </div>
+
+                  <ul className="space-y-2">
+                    {item.skills.map((skill) => (
+                      <li
+                        key={skill}
+                        className="text-sm text-muted-foreground hover:text-foreground transition-colors flex items-center gap-2"
+                      >
+                        <span className="text-accent text-xs">▸</span>
+                        {skill}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              )
+            })}
+          </div>
 
         {/* Tools Section */}
         <div className="mt-20 grid grid-cols-1 lg:grid-cols-2 gap-12">
