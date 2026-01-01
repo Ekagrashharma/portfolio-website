@@ -163,13 +163,13 @@ function HeroSection() {
   }, [])
 
   const socials = [
-    { icon: Github, href: "https://github.com", label: "GitHub" },
-    { icon: Linkedin, href: "https://linkedin.com", label: "LinkedIn" },
-    { icon: Mail, href: "mailto:ekagra@example.com", label: "Email" },
+    { icon: Github, href: "https://github.com/Ekagrashharma", label: "GitHub" },
+    { icon: Linkedin, href: "https://www.linkedin.com/in/ekagrashharma", label: "LinkedIn" },
+    { icon: Mail, href: "mailto:ekagrashharma@gmail.com", label: "Email" },
   ]
 
   return (
-    <section className="min-h-screen pt-32 pb-20 px-6 noise-bg" id="home">
+    <section className="min-h-screen pt-32 pb-7 px-6 noise-bg" id="home">
       <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
         <div className="space-y-8">
           <div>
@@ -266,7 +266,7 @@ function AboutSection() {
   }, [])
 
   return (
-    <section className="min-h-screen pt-32 pb-20 px-6 noise-bg" id="about">
+    <section className="min-h-screen  pb-20 px-6 noise-bg" id="about">
       <div className="max-w-4xl mx-auto">
         <div ref={titleRef} className="mb-16">
           <div className="accent-line mb-8" />
@@ -377,7 +377,7 @@ function ProjectsSection() {
   }, [])
 
   return (
-    <section className="min-h-screen pt-32 pb-20 px-6 noise-bg" id="projects">
+    <section className="min-h-screen  pb-20 px-6 noise-bg" id="projects">
       <div className="max-w-6xl mx-auto">
         <div ref={titleRef} className="mb-16">
           <div className="accent-line mb-8" />
@@ -470,7 +470,7 @@ function SkillsSection() {
   }, [])
 
   return (
-    <section className="min-h-screen pt-32 pb-20 px-6 noise-bg" id="skills">
+    <section className="min-h-screen  pb-20 px-6 noise-bg" id="skills">
       <div className="max-w-6xl mx-auto">
         <div ref={titleRef} className="mb-16">
           <div className="accent-line mb-8" />
@@ -588,7 +588,7 @@ function ExperienceSection() {
   }, [])
 
   return (
-    <section className="min-h-screen pt-32 pb-20 px-6 noise-bg" id="experience">
+    <section className="min-h-screen pb-20 px-6 noise-bg" id="experience">
       <div className="max-w-4xl mx-auto">
         <div ref={titleRef} className="mb-16">
           <div className="accent-line mb-8" />
@@ -677,7 +677,7 @@ function ContactSection() {
   }
 
   return (
-    <section className="min-h-screen pt-32 pb-20 px-6 noise-bg" id="contact">
+    <section className="min-h-screen  pb-20 px-6 noise-bg" id="contact">
       <div className="max-w-2xl mx-auto">
         <div ref={titleRef} className="mb-16 text-center">
           <div className="accent-line mb-8 mx-auto w-fit" />
@@ -688,8 +688,9 @@ function ContactSection() {
             I'm always interested in hearing about new projects and opportunities.
           </p>
         </div>
-
-        <form onSubmit={handleSubmit} className="contact-form glass-effect p-8 rounded-xl space-y-6">
+        
+        <div className=" border-2 rounded-2xl">
+        <form onSubmit={handleSubmit} className="contact-form glass-effect p-8 rounded-xl  space-y-6">
           <input
             type="text"
             name="name"
@@ -697,7 +698,7 @@ function ContactSection() {
             value={formData.name}
             onChange={handleChange}
             required
-            className="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-lg text-foreground placeholder-muted-foreground focus:outline-none focus:border-accent/50 transition-colors"
+            className="w-full px-4 py-3 bg-gray-200 border border-white/10 rounded-lg text-foreground placeholder-muted-foreground focus:outline-none focus:border-accent/50 transition-colors"
           />
 
           <input
@@ -707,7 +708,7 @@ function ContactSection() {
             value={formData.email}
             onChange={handleChange}
             required
-            className="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-lg text-foreground placeholder-muted-foreground focus:outline-none focus:border-accent/50 transition-colors"
+            className="w-full px-4 py-3 bg-gray-200  border border-white/10 rounded-lg text-foreground placeholder-muted-foreground focus:outline-none focus:border-accent/50 transition-colors"
           />
 
           <textarea
@@ -717,13 +718,13 @@ function ContactSection() {
             onChange={handleChange}
             required
             rows={5}
-            className="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-lg text-foreground placeholder-muted-foreground focus:outline-none focus:border-accent/50 transition-colors resize-none"
+            className="w-full px-4 py-3 bg-gray-200  border border-white/10 rounded-lg text-foreground placeholder-muted-foreground focus:outline-none focus:border-accent/50 transition-colors resize-none"
           />
 
           <button
             type="submit"
             disabled={status === "loading"}
-            className="w-full px-8 py-4 bg-accent text-accent-foreground font-bold rounded-lg hover:opacity-90 transition-opacity disabled:opacity-50"
+            className="w-full px-8 py-4 bg-red-500 text-accent-foreground font-bold rounded-lg hover:opacity-90 transition-opacity disabled:opacity-50"
           >
             {status === "loading" ? "Sending..." : status === "success" ? "Message Sent!" : "Send Message"}
           </button>
@@ -732,6 +733,7 @@ function ContactSection() {
             <p className="text-accent text-center">Thanks for reaching out. I'll get back to you soon!</p>
           )}
         </form>
+        </div>
       </div>
     </section>
   )
